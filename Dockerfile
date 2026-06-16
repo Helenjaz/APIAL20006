@@ -29,6 +29,6 @@ COPY . .
 RUN composer dump-autoload --optimize
 
 # Asegurar que Apache tenga los permisos correctos sobre los archivos
-RUN chown -w -R /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
