@@ -18,7 +18,7 @@ $app->addBodyParsingMiddleware();
 
 
 $app->get('/doctores', function (Request $request, Response $response) {
-    $sql = "SELECT * FROM Doctores";
+    $sql = "SELECT * FROM doctores";
     try {
         $db = new Db();
         $db = $db->connect();
