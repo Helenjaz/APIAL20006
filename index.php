@@ -4,7 +4,10 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
 // CORRECCIÓN: Se agrega /src/ a la ruta porque allí es donde vive tu carpeta vendor
-require __DIR__ . '/src/vendor/autoload.php';
+// El vendor está afuera en la raíz
+require __DIR__ . '/vendor/autoload.php'; 
+
+// La base de datos está adentro de la carpeta src que acabas de crear
 require __DIR__ . '/src/db.php';
 
 $app = AppFactory::create();
