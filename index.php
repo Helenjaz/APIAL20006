@@ -39,7 +39,7 @@ $app->get('/doctores', function (Request $request, Response $response) {
 $app->post('/doctores', function (Request $request, Response $response) {
     $data = $request->getParsedBody();
     
-    $sql = "INSERT INTO Doctores (IdDoctor, Nombres, Apellidos, Especialidad, TurnoAtencion, PacientesMinDiarios, NSueldo, IdHospital) 
+    $sql = "INSERT INTO doctores (IdDoctor, Nombres, Apellidos, Especialidad, TurnoAtencion, PacientesMinDiarios, NSueldo, IdHospital) 
             VALUES (:IdDoctor, :Nombres, :Apellidos, :Especialidad, :TurnoAtencion, :PacientesMinDiarios, :NSueldo, :IdHospital)";
             
     try {
@@ -72,7 +72,7 @@ $app->post('/doctores', function (Request $request, Response $response) {
 $app->post('/hospitales', function (Request $request, Response $response) {
     $data = $request->getParsedBody();
     
-    $sql = "INSERT INTO Hospitales (IdHospital, NomHospital, CapacidadAtencion, Especialidades) 
+    $sql = "INSERT INTO hospitales (IdHospital, NomHospital, CapacidadAtencion, Especialidades) 
             VALUES (:IdHospital, :NomHospital, :CapacidadAtencion, :Especialidades)";
             
     try {
@@ -100,7 +100,7 @@ $app->post('/hospitales', function (Request $request, Response $response) {
 
 $app->get('/hospitales/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
-    $sql = "SELECT * FROM Hospitales WHERE IdHospital = :id";
+    $sql = "SELECT * FROM hospitales WHERE IdHospital = :id";
     try {
         $db = new Db();
         $db = $db->connect();
