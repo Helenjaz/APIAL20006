@@ -3,7 +3,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
-require __DIR__ . '/vendor/autoload.php';
+// CORRECCIÓN: Se agrega /src/ a la ruta porque allí es donde vive tu carpeta vendor
+require __DIR__ . '/src/vendor/autoload.php';
 require __DIR__ . '/src/db.php';
 
 $app = AppFactory::create();
@@ -103,7 +104,6 @@ $app->get('/hospitales/{id}', function (Request $request, Response $response, ar
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-        // Corregido usando fetch() y \PDO::FETCH_ASSOC ya que es un único registro por ID
         $hospital = $stmt->fetch(\PDO::FETCH_ASSOC);
         
         if($hospital) {
