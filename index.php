@@ -11,7 +11,7 @@ require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/src/db.php';
 
 $app = AppFactory::create();
-$app->setBasePath('/APIAL20006');
+//$app->setBasePath('/APIAL20006');
 
 
 $app->addBodyParsingMiddleware();
